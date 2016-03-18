@@ -37,10 +37,12 @@
 					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
 					<webResources>
 						<resource>
-							<directory>../src/main/resources</directory>
+							<directory>../../apollo-xsd-and-types/src/main/resources</directory>
 							<targetPath>WEB-INF/wsdl</targetPath>
 							<includes>
 								<include>library_service_4.0.wsdl</include>
+								<include>library_service_4.0.xsd</include>
+								<include>services_common_4.0.xsd</include>
 							</includes>
 						</resource>
 					
