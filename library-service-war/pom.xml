@@ -13,7 +13,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>edu.pitt.apollo</groupId>
-			<artifactId>library-service</artifactId>
+			<artifactId>library-soap-service</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
@@ -42,7 +42,8 @@
 							<includes>
 								<include>library_service_4.0.wsdl</include>
 								<include>library_service_4.0.xsd</include>
-								<include>services_common_4.0.xsd</include>
+								<include>services_common_4.0.xsd</include>								<include>library_service_4.0.xsd</include>
+								<include>apollo_types_4.0.xsd</include>
 							</includes>
 						</resource>
 					

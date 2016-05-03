@@ -43,8 +43,8 @@ import javax.xml.datatype.DatatypeConfigurationException;
 
 public class WSClient {
 
-	public static final String WSDL_LOC = "http://betaweb.rods.pitt.edu/library-service-war-3.1.0-SNAPSHOT/services/libraryservice?wsdl";
-	public static final QName SERVICE = new QName("http://service.apollo.pitt.edu/libraryservice/v3_1_0/", "LibraryService_v3.1.0");
+	public static final String WSDL_LOC = "http://betaweb.rods.pitt.edu/library-service-war-4.0-SNAPSHOT/services/libraryservice?wsdl";
+	public static final QName SERVICE = new QName("http://service.apollo.pitt.edu/libraryservice/v4_0/", "LibraryService_v4.0");
 	private static final String LIBRARY_CONNECTION_PROPERTIES_FILE = "library_service_connection.properties";
 
 	public static final String APOLLO_DIR;
