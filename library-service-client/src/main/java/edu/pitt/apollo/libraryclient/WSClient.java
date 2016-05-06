@@ -15,14 +15,14 @@
 package edu.pitt.apollo.libraryclient;
 
 import edu.pitt.apollo.GlobalConstants;
-import edu.pitt.apollo.library_service_types.v3_1_0.*;
-import edu.pitt.apollo.service.libraryservice.v3_1_0.LibraryServiceEI;
-import edu.pitt.apollo.service.libraryservice.v3_1_0.LibraryServiceV310;
-import edu.pitt.apollo.services_common.v3_1_0.Authentication;
-import edu.pitt.apollo.types.v3_1_0.Census;
-import edu.pitt.apollo.types.v3_1_0.IndividualTreatmentControlMeasure;
-import edu.pitt.apollo.types.v3_1_0.InfectiousDiseaseScenario;
-import edu.pitt.apollo.types.v3_1_0.PlaceClosureControlMeasure;
+import edu.pitt.apollo.library_service_types.v4_0.*;
+import edu.pitt.apollo.service.libraryservice.v4_0.LibraryServiceEI;
+import edu.pitt.apollo.service.libraryservice.v4_0.LibraryServiceV40;
+import edu.pitt.apollo.services_common.v4_0.Authentication;
+import edu.pitt.apollo.types.v4_0.Census;
+import edu.pitt.apollo.types.v4_0.IndividualTreatmentControlMeasure;
+import edu.pitt.apollo.types.v4_0.InfectiousDiseaseScenario;
+import edu.pitt.apollo.types.v4_0.PlaceClosureControlMeasure;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -65,14 +65,14 @@ public class WSClient {
 	}
 
 	public static void main(String[] args) throws MalformedURLException, FileNotFoundException, IOException, JAXBException, DatatypeConfigurationException, ParseException {
-		LibraryServiceV310 ls = new LibraryServiceV310(new URL(WSDL_LOC), SERVICE);
+		LibraryServiceV40 ls = new LibraryServiceV40(new URL(WSDL_LOC), SERVICE);
 		LibraryServiceEI port = ls.getLibraryServiceEndpoint();
 
 		Authentication a = getAuthentication();
-		AddLibraryItemContainerResult scenarioResult = addInfectiousDiseaseScenarioToLibrary(a, port);
-//        UpdateLibraryItemContainerResult result = updateInfectiousDiseaseScenarioInLibrary(a, 1, port);
+//		AddLibraryItemContainerResult scenarioResult = addInfectiousDiseaseScenarioToLibrary(a, port);
+        UpdateLibraryItemContainerResult result = updateInfectiousDiseaseScenarioInLibrary(a, 1, port);
 
-		//setReleaseVersionForInfectiousDiseaseScenario(a, port, scenarioResult.getVersion(), scenarioResult.getUrn());
+		setReleaseVersionForInfectiousDiseaseScenario(a, port, result.getVersion(), 1);
 //		AddLibraryItemContainerResult vaccResult = addVaccinationControlMeasureToLibrary(a, port);
 //		setReleaseVersionForVaccinationControlStratgy(a, port, vaccResult.getVersion(), vaccResult.getUrn());
 ////

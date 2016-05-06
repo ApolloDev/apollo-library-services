@@ -5,7 +5,7 @@
     <parent>
         <groupId>edu.pitt.apollo</groupId>
         <artifactId>apollo-ws</artifactId>
-        <version>3.1.0-SNAPSHOT</version>
+        <version>4.0-SNAPSHOT</version>
     </parent>
     <artifactId>library-service-client</artifactId>
     <name>Library Service SOAP Client</name>
@@ -27,7 +27,7 @@
     <dependencies>
         <dependency>
             <groupId>edu.pitt.apollo</groupId>
-            <artifactId>library-service</artifactId>
+            <artifactId>library-soap-service</artifactId>
             <!-- Classifier below used with Maven Assembly Plugin to specify subset 
             of above artifact needed. -->
             <classifier>jaxws</classifier>

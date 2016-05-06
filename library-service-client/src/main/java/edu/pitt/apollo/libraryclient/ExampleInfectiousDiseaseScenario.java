@@ -1,7 +1,7 @@
 package edu.pitt.apollo.libraryclient;
 
 
-import edu.pitt.apollo.types.v3_1_0.*;
+import edu.pitt.apollo.types.v4_0.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -56,7 +56,7 @@ public class ExampleInfectiousDiseaseScenario {
 		FixedDuration infectiousPeriod = new FixedDuration();
 		infectiousPeriod.setUnitOfTime(UnitOfTimeEnum.DAY);
 		infectiousPeriod.setValue(6.0);
-		iafih.setInfectiousPeriodDuration(latentPeriod);
+		iafih.setInfectiousPeriodDuration(infectiousPeriod);
 
 		infection.getInfectionAcquisitionsFromInfectedHosts().add(iafih);
 
