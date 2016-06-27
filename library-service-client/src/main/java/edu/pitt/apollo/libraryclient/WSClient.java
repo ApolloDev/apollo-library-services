@@ -70,11 +70,11 @@ public class WSClient {
 
 		Authentication a = getAuthentication();
 //		AddLibraryItemContainerResult scenarioResult = addInfectiousDiseaseScenarioToLibrary(a, port);
-        UpdateLibraryItemContainerResult result = updateInfectiousDiseaseScenarioInLibrary(a, 1, port);
-
-		setReleaseVersionForInfectiousDiseaseScenario(a, port, result.getVersion(), 1);
+//        UpdateLibraryItemContainerResult result = updateInfectiousDiseaseScenarioInLibrary(a, 1, port);
+//		setReleaseVersionForInfectiousDiseaseScenario(a, port, result.getVersion(), 1);
 //		AddLibraryItemContainerResult vaccResult = addVaccinationControlMeasureToLibrary(a, port);
-//		setReleaseVersionForVaccinationControlStratgy(a, port, vaccResult.getVersion(), vaccResult.getUrn());
+		UpdateLibraryItemContainerResult vaccResult = updateVaccinationControlMeasureInLibrary(a, port, 2);
+		setReleaseVersionForVaccinationControlStratgy(a, port, vaccResult.getVersion(), 2);
 ////
 //		AddLibraryItemContainerResult antiviralResult = addAntiviralControlMeasureToLibrary(a, port);
 //		setReleaseVersionForAntiviralControlStratgy(a, port, antiviralResult.getVersion(), antiviralResult.getUrn());
@@ -227,9 +227,9 @@ public class WSClient {
 		return port.updateLibraryItemContainer(message);
 	}
 
-	private static AddLibraryItemContainerResult addVaccinationControlMeasureToLibrary(XMLGregorianCalendar startDate, Authentication auth, LibraryServiceEI port) {
+	private static AddLibraryItemContainerResult addVaccinationControlMeasureToLibrary(Authentication auth, LibraryServiceEI port) {
 
-		IndividualTreatmentControlMeasure strategy = ExampleVaccinationControlStrategy.getStrategy(startDate);
+		IndividualTreatmentControlMeasure strategy = ExampleVaccinationControlStrategy.getStrategy();
 		LibraryItemContainer lic = new LibraryItemContainer();
 		lic.setLibraryItem(strategy);
 
@@ -311,9 +311,9 @@ public class WSClient {
 
 	}
 
-	private static UpdateLibraryItemContainerResult updateVaccinationControlMeasureInLibrary(XMLGregorianCalendar startDate, Authentication auth, LibraryServiceEI port, int urn) {
+	private static UpdateLibraryItemContainerResult updateVaccinationControlMeasureInLibrary(Authentication auth, LibraryServiceEI port, int urn) {
 
-		IndividualTreatmentControlMeasure strategy = ExampleVaccinationControlStrategy.getStrategy(startDate);
+		IndividualTreatmentControlMeasure strategy = ExampleVaccinationControlStrategy.getStrategy();
 		LibraryItemContainer lic = new LibraryItemContainer();
 		lic.setLibraryItem(strategy);
 

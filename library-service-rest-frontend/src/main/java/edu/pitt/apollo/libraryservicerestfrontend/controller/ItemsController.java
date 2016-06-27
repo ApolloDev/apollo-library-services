@@ -33,7 +33,7 @@ public class ItemsController {
 			@ApiParam(value = "Username", required = true) @RequestParam("username") String username,
 			@ApiParam(value = "Password", required = true) @RequestParam("password") String password,
 			@ApiParam(value = "Item URN", required = true) @PathVariable("urn") int urn,
-			@ApiParam(value = "Revision", required = false) @RequestParam("revision") Integer revision) throws UnsupportedSerializationFormatException, SerializationException {
+			@ApiParam(value = "Revision", required = false) @RequestParam(value = "revision", required = false) Integer revision) throws UnsupportedSerializationFormatException, SerializationException {
 		return new GetLibraryItemMethod(username, password, SerializationFormat.XML).getLibraryItem(urn, revision);
 	}
 
@@ -71,7 +71,7 @@ public class ItemsController {
 	@ApiResponses(value = {
 		@ApiResponse(code = 200, message = "")
 	})
-	@RequestMapping(value = "/items/{urn}/revisions/{revision}/comments", method = RequestMethod.GET, headers = "Accept=applicaton/xml")
+	@RequestMapping(value = "/items/{urn}/revisions/{revision}/comments", method = RequestMethod.POST, headers = "Accept=applicaton/xml")
 	public @ResponseBody
 	String addCommentToLibraryItem(
 			@ApiParam(value = "Username", required = true) @RequestParam("username") String username,
