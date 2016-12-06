@@ -1,14 +1,14 @@
 package edu.pitt.apollo.libraryservice.methods;
 
-import edu.pitt.apollo.db.LibraryDbUtils;
-import edu.pitt.apollo.db.LibraryUserRoleTypeEnum;
+import edu.pitt.apollo.database.LibraryDbUtils;
+import edu.pitt.apollo.database.LibraryUserRoleTypeEnum;
 import edu.pitt.apollo.db.exceptions.ApolloDatabaseException;
-import edu.pitt.apollo.library_service_types.v4_0.AddLibraryItemContainerMessage;
-import edu.pitt.apollo.library_service_types.v4_0.AddLibraryItemContainerResult;
-import edu.pitt.apollo.library_service_types.v4_0.LibraryItemContainer;
-import edu.pitt.apollo.services_common.v4_0.Authentication;
-import edu.pitt.apollo.services_common.v4_0.MethodCallStatus;
-import edu.pitt.apollo.services_common.v4_0.MethodCallStatusEnum;
+import edu.pitt.apollo.library_service_types.v4_0_1.AddLibraryItemContainerMessage;
+import edu.pitt.apollo.library_service_types.v4_0_1.AddLibraryItemContainerResult;
+import edu.pitt.apollo.library_service_types.v4_0_1.LibraryItemContainer;
+import edu.pitt.apollo.services_common.v4_0_1.Authentication;
+import edu.pitt.apollo.services_common.v4_0_1.MethodCallStatus;
+import edu.pitt.apollo.services_common.v4_0_1.MethodCallStatusEnum;
 
 /**
  *
@@ -31,7 +31,8 @@ public class AddLibraryItemMethod {
 		try {
 			boolean userAuthorized = dbUtils.authorizeUser(authentication, LibraryUserRoleTypeEnum.COMMITTER);
 			if (userAuthorized) {
-				result = dbUtils.addLibraryItem(libraryItemContainer, authentication, comment);
+				result = dbUtils.addLibraryItem(libraryItemContainer, "looks_like_this_isnt_hooked_up", comment);
+
 				result.setStatus(status);
 
 				status.setStatus(MethodCallStatusEnum.COMPLETED);

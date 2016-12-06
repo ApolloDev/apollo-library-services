@@ -15,14 +15,14 @@
 package edu.pitt.apollo.libraryclient;
 
 import edu.pitt.apollo.GlobalConstants;
-import edu.pitt.apollo.library_service_types.v4_0.*;
-import edu.pitt.apollo.service.libraryservice.v4_0.LibraryServiceEI;
-import edu.pitt.apollo.service.libraryservice.v4_0.LibraryServiceV40;
-import edu.pitt.apollo.services_common.v4_0.Authentication;
-import edu.pitt.apollo.types.v4_0.Census;
-import edu.pitt.apollo.types.v4_0.IndividualTreatmentControlMeasure;
-import edu.pitt.apollo.types.v4_0.InfectiousDiseaseScenario;
-import edu.pitt.apollo.types.v4_0.PlaceClosureControlMeasure;
+import edu.pitt.apollo.library_service_types.v4_0_1.*;
+import edu.pitt.apollo.service.libraryservice.v4_0_1.LibraryServiceEI;
+import edu.pitt.apollo.service.libraryservice.v4_0_1.LibraryServiceV40;
+import edu.pitt.apollo.services_common.v4_0_1.Authentication;
+import edu.pitt.apollo.types.v4_0_1.Census;
+import edu.pitt.apollo.types.v4_0_1.IndividualTreatmentControlMeasure;
+import edu.pitt.apollo.types.v4_0_1.InfectiousDiseaseScenario;
+import edu.pitt.apollo.types.v4_0_1.PlaceClosureControlMeasure;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -43,7 +43,7 @@ import javax.xml.datatype.DatatypeConfigurationException;
 
 public class WSClient {
 
-	public static final String WSDL_LOC = "http://betaweb.rods.pitt.edu/library-service-war-4.0-SNAPSHOT/services/libraryservice?wsdl";
+	public static final String WSDL_LOC = "http://betaweb.rods.pitt.edu/library-service-war-4.0.1-SNAPSHOT/services/libraryservice?wsdl";
 	public static final QName SERVICE = new QName("http://service.apollo.pitt.edu/libraryservice/v4_0/", "LibraryService_v4.0");
 	private static final String LIBRARY_CONNECTION_PROPERTIES_FILE = "library_service_connection.properties";
 
@@ -97,8 +97,9 @@ public class WSClient {
 		fis.close();
 
 		Authentication auth = new Authentication();
-		auth.setRequesterId(properties.getProperty("user"));
-		auth.setRequesterPassword(properties.getProperty("password"));
+		//TODO:Fix this
+		/*auth.setRequesterId(properties.getProperty("user"));
+		auth.setRequesterPassword(properties.getProperty("password"));*/
 		return auth;
 	}
 

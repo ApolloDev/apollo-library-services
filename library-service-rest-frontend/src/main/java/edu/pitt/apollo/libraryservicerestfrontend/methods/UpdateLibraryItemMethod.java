@@ -1,12 +1,12 @@
 package edu.pitt.apollo.libraryservicerestfrontend.methods;
 
-import edu.pitt.apollo.exception.DeserializationException;
 import edu.pitt.apollo.exception.LibraryServiceException;
-import edu.pitt.apollo.exception.SerializationException;
-import edu.pitt.apollo.exception.UnsupportedSerializationFormatException;
-import edu.pitt.apollo.library_service_types.v4_0.*;
-import edu.pitt.apollo.services_common.v4_0.SerializationFormat;
+import edu.pitt.apollo.library_service_types.v4_0_1.*;
+import edu.pitt.apollo.services_common.v4_0_1.SerializationFormat;
 import edu.pitt.apollo.utils.ResponseDeserializer;
+import edu.pitt.isg.objectserializer.exceptions.DeserializationException;
+import edu.pitt.isg.objectserializer.exceptions.SerializationException;
+import edu.pitt.isg.objectserializer.exceptions.UnsupportedSerializationFormatException;
 import org.springframework.http.HttpStatus;
 
 /**

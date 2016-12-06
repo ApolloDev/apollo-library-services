@@ -1,11 +1,13 @@
 package edu.pitt.apollo.libraryservice.test;
 
 
-import edu.pitt.apollo.utilities.JsonUtils;
+import edu.pitt.apollo.utilities.ApolloClassList;
+import edu.pitt.isg.objectserializer.JsonUtils;
 import junit.framework.TestCase;
 
 import javax.xml.bind.JAXBException;
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  *
@@ -23,7 +25,7 @@ public class LibraryServiceMethodTests extends TestCase {
         String test = "hello!";
         JohnsTestChild jtc = new JohnsTestChild();
 
-        JsonUtils jsonUtils = new JsonUtils();
+        JsonUtils jsonUtils = new JsonUtils(Arrays.asList(ApolloClassList.classList));
         try {
             System.out.println(jsonUtils.getJsonBytes(test));
             System.out.println(jsonUtils.getJsonBytes(jtc));

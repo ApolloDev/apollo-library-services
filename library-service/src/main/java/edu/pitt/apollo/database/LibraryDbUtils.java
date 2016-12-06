@@ -4,10 +4,11 @@ import edu.pitt.apollo.db.BaseDbUtils;
 import edu.pitt.apollo.db.exceptions.*;
 import edu.pitt.apollo.db.exceptions.library.NoLibraryItemException;
 import edu.pitt.apollo.db.exceptions.library.NoURNFoundException;
-import edu.pitt.apollo.library_service_types.v4_0.*;
-import edu.pitt.apollo.services_common.v4_0.Authentication;
-import edu.pitt.apollo.types.v4_0.*;
-import edu.pitt.apollo.utilities.JsonUtils;
+import edu.pitt.apollo.library_service_types.v4_0_1.*;
+import edu.pitt.apollo.services_common.v4_0_1.Authentication;
+import edu.pitt.apollo.types.v4_0_1.*;
+import edu.pitt.apollo.utilities.ApolloClassList;
+import edu.pitt.isg.objectserializer.JsonUtils;
 import org.postgresql.ds.PGSimpleDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,7 +52,7 @@ public class LibraryDbUtils extends BaseDbUtils {
     protected static Logger logger = LoggerFactory.getLogger(LibraryDbUtils.class);
 
 
-	JsonUtils jsonUtils = new JsonUtils();
+	JsonUtils jsonUtils = new JsonUtils(Arrays.asList(ApolloClassList.classList));
 
 	public LibraryDbUtils() throws ApolloDatabaseException {
 		super(LIBRARY_DB_RESOURCE_NAME);
@@ -76,7 +77,7 @@ public class LibraryDbUtils extends BaseDbUtils {
         }
     }
 
-    @Override
+
     protected String getSystemSaltFileDir() {
 
         return APOLLO_DIR + LIBRARY_SALT_FILE;
@@ -143,8 +144,8 @@ public class LibraryDbUtils extends BaseDbUtils {
 
 	public int addUser(String userName, String userPassword, String userEmail) throws ApolloDatabaseRecordAlreadyExistsException,
 			ApolloDatabaseUserPasswordException, ApolloDatabaseException {
-
-		try {
+		return -1;
+		/*try {
 			getUserId(userName, null);
 			// if getUserId returns without exception, this means the user already exists
 			throw new ApolloDatabaseRecordAlreadyExistsException("There was an error adding user to the Apollo library. User " + userName
@@ -187,7 +188,7 @@ public class LibraryDbUtils extends BaseDbUtils {
 			}
 		} catch (SQLException ex) {
 			throw createApolloDatabaseExceptionAndLog(ADDING_USER, ex);
-		}
+		}*/
 	}
 
 	public void addUserRole(String userName, String userPassword, LibraryUserRoleTypeEnum role) throws ApolloDatabaseException {
@@ -329,7 +330,7 @@ public class LibraryDbUtils extends BaseDbUtils {
 //	}
 	private int getActionId(LibraryActionTypeEnum action, Connection existingConnection) throws ApolloDatabaseExplicitException {
 
-		String sql = "SELECT id FROM library_actions WHERE action = ?";
+		/*String sql = "SELECT id FROM library_actions WHERE action = ?";
 		Connection conn = null;
 		try {
 			conn = existingConnection != null ? existingConnection : getConnection(false);
@@ -350,7 +351,7 @@ public class LibraryDbUtils extends BaseDbUtils {
 					//this is okay.
 				}
 		}
-
+*/
 
 		throw new ApolloDatabaseExplicitException("No action ID matched the given action");
 	}
@@ -1100,7 +1101,7 @@ public class LibraryDbUtils extends BaseDbUtils {
 //		entry.setItemDescription("test description");
 //
 		item.setLibraryItem(strategy);
-		ByteArrayOutputStream bytes = new JsonUtils().getJsonBytes(item);
+		ByteArrayOutputStream bytes = new JsonUtils(Arrays.asList(ApolloClassList.classList)).getJsonBytes(item);
 ////
 //		int catalogId = dbUtils.addLibraryItem("scenario_urn2", item, authentication, "first item");
 //		System.out.println("Catalog ID: " + catalogId);

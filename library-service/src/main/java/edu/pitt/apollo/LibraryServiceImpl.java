@@ -14,19 +14,19 @@
  */
 package edu.pitt.apollo;
 
-import edu.pitt.apollo.db.LibraryDbUtils;
-import edu.pitt.apollo.db.LibraryReadOnlyDbUtils;
+import edu.pitt.apollo.database.LibraryDbUtils;
+import edu.pitt.apollo.database.LibraryReadOnlyDbUtils;
 import edu.pitt.apollo.db.exceptions.ApolloDatabaseException;
 import edu.pitt.apollo.exception.LibraryServiceException;
 import edu.pitt.apollo.interfaces.LibraryServiceInterface;
-import edu.pitt.apollo.library_service_types.v4_0.*;
+import edu.pitt.apollo.library_service_types.v4_0_1.*;
 
 import java.io.File;
 import java.util.Map;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import edu.pitt.apollo.services_common.v4_0.Authentication;
+import edu.pitt.apollo.services_common.v4_0_1.Authentication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

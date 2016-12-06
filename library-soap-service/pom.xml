@@ -4,7 +4,7 @@
     <parent>
         <groupId>edu.pitt.apollo</groupId>
         <artifactId>apollo-ws</artifactId>
-        <version>4.0-SNAPSHOT</version>
+        <version>4.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>library-soap-service</artifactId>
     <name>Library Soap Service</name>
@@ -167,9 +167,9 @@
                                     <wsdlOptions>
                                         <wsdlOption>
                                             <wsdl>
-                                                ../src/main/resources/library_service_4.0.wsdl
+                                                ../src/main/resources/library_service_v4.wsdl
                                             </wsdl>
-                                            <wsdlLocation>classpath:library_service_4.0.wsdl</wsdlLocation>
+                                            <wsdlLocation>classpath:library_service_v4.wsdl</wsdlLocation>
                                         </wsdlOption>
                                     </wsdlOptions>
                                 </configuration>
